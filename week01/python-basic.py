@@ -336,12 +336,24 @@ print(any([1, 2, 3, 4]))
 print(any([4, -2, 0.0, 4]))
 
 # 아스키코드 값에 대한 문자 출력
+print(chr(97))
+print(chr(48))
 
 # 문자에 대한 아스키코드 값 출력
+print(ord('a'))
+print(ord('0'))
 
 # 객체 x가 가진 멤버 변수와 멤버 함수 보여주기
+print(dir([1, 2, 3]))
+print(dir({'1':'a'}))
+print(dir(1))
+
+print(int('3'))
+print(str(3))
 
 # x를 리스트로 반환
+print(tuple("Python"))
+print(tuple([1, 2, 3]))
 
 # x를 튜플로 반환
 
