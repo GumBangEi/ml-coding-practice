@@ -279,3 +279,44 @@ if money >= 10:
 else:
     print('저금하지!')
 
+"""# 4. 반복문"""
+
+# for 반복문1
+test_list = ['one', 'two', 'three']
+for i in test_list:
+    x = i + '!'
+    print(x)
+
+# for 반복문2
+number = 0
+for score in [90, 25, 67, 45, 93]:
+    number += 1
+
+    if score > 60:
+        print("%d번 학생은 합격입니다." % number)
+    else:
+        print("$d번 학생은 불합격입니다." % number)
+
+# while 문
+i = 0
+while i < 5:
+    i += 1
+    print('*' * i)
+
+# 함수 정의
+def sum1(a, b):
+    x = a + b
+    return x
+
+def sum2(*args):
+    x = 0
+    for i in args:
+        x += i
+    return x
+
+# 함수 호출
+a = 5
+b = 3
+print(sum1(a, b))
+print(sum1(3, 5))
+print(sum2(1, 2, 3, 4, 5))
