@@ -376,14 +376,45 @@ print(min([1, 4, 1, 8, 6]))
 print(min("Python"))
 
 # x의 y제곱 결과값 반환
+print(pow(2,4))
 
 # 사용자의 입력으로 받은 값을 문자열로 반환1
+c = input("값을 입력해주세요:")
+print(c)
 
 # 사용자의 입력으로 받은 값을 문자열로 반환2
+c = input("정수를 입력하세요:")
+print(c)
 
 # 입력받은 숫자에 해당되는 범위의 값을 반환
+print(range(5))
+print(list(range(5)))
+print(list(range(5, 10)))
+print(list(range(5, 10, 2)))
+
+for i in range(5, 20, 3):
+    print(i)
 
 # 입력값 s의 길이를 반환
+len('Python')
+
+print(sorted([3, 0, 2, 1]))
+print(sorted('Python'))
 
 # 패키지, 모듈 사용
 # Request('http://www.sunmoon.ac.kr)    # 오류 발생
+
+import urllib.request
+urllib.request.Request('http://www.sunmoon.ac.kr')
+
+import pandas
+pandas.DataFrame()
+
+from datetime import datetime
+datetime.now()
+
+# 파일 객체 생성
+f = open('example.txt', 'w')
+print(f)
+
+# 파일 닫기
