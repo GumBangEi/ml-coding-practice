@@ -348,8 +348,8 @@ print(dir([1, 2, 3]))
 print(dir({'1':'a'}))
 print(dir(1))
 
-print(int('3'))
-print(str(3))
+print(int('3'))                 # x를 정수 형태로 반환
+print(str(3))                   # x를 문자열 형태로 반환
 
 # x를 리스트로 반환
 print(list("Python"))
@@ -371,3 +371,19 @@ print(sum(3, 5))
 # 최대, 최소값 반환
 print(max([1, 4, 2, 8, 6]))
 print(max("Python"))
+
+print(min([1, 4, 1, 8, 6]))
+print(min("Python"))
+
+# x의 y제곱 결과값 반환
+
+# 사용자의 입력으로 받은 값을 문자열로 반환1
+
+# 사용자의 입력으로 받은 값을 문자열로 반환2
+
+# 입력받은 숫자에 해당되는 범위의 값을 반환
+
+# 입력값 s의 길이를 반환
+
+# 패키지, 모듈 사용
+# Request('http://www.sunmoon.ac.kr)    # 오류 발생
