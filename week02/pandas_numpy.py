@@ -3,7 +3,7 @@ import pandas as pd
 file_url = 'https://media.githubusercontent.com/media/musthave-ML10/data_source/main/sample.csv'
 sample = pd.read_csv(file_url)
 
-print(sample.fead())
+print(sample.head())
 print(sample.tail())
 
 sample.info()
@@ -48,4 +48,6 @@ print(netflix.head)
 
 print(netflix['release_year'])
 print(netflix['release_year'] > 2015)
-more2015 = 
+
+more2015 = netflix[netflix['release_year'] > 2015]
+print(more2015.head(10))
