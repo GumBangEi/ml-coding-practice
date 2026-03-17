@@ -14,3 +14,4 @@ a = pd.DataFrame(sample_dic)
 
 a.info()
 
+pd
