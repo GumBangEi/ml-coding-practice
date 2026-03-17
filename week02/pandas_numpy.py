@@ -38,5 +38,5 @@ print(sample_df.iloc[0:2])
 print(sample_df.iloc[0:3])
 print(sample_df.iloc[0:3, 2:4])           # 칼럼까지 동시에 인덱싱
 
-print(sample_df.drop)
+print(sample_df.drop[['var_1', 'var_3'], axis=1])
 
