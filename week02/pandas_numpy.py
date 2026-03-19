@@ -109,4 +109,19 @@ print(iris.drop('class', axis=1).agg(['sum', 'mean', 'std']))
 
 
 print(iris['class'].unique())
-print(iris['class'].unui)
+print(iris['class'].nunique())
+print(iris['class'].value_counts())
+
+# 예제 데이터 생성
+data = {
+    'name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'age': [25, 30, 35, 28, 40],
+    'salary': [70000.00, 80000.00, 90000.00, 60000.00, 95000.00]
+}
+
+# Dataframe 생성
+df = pd.DataFrame(data)
+print(df.head())
+
+# 나이가 30 이상인 직원의 이름과 급여 반환
+result = df[df['age'] >= 30]
