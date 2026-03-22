@@ -43,3 +43,8 @@ print(survived_count)
 plt.bar(survived_count.index, survived_count,
         color = ['mediumorchid', 'darkviolet', 'indigo'])
 plt.title('Survived Counts by Embarked Port on Tatanic')
+plt.xlabel('Embarked Port')
+plt.ylabel('Count')
+plt.xticks(survived_count.index, ['Southampton', 'Cherbourg', 'Queenstown'])
+plt.legend(['Survived'], loc='upper right')
+plt.grid(axis='y', linestyle='--', ahlpa=0.7)
