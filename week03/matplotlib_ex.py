@@ -55,3 +55,4 @@ for i, value in enumerate(survived_count):
     plt.text(i, value + 1, str(value), ha='center', va='bottom')
 
 plt.show()
+plt.close()
