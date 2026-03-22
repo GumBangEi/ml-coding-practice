@@ -42,4 +42,4 @@ print(survived_count)
 # 막대 그래프 그리기
 plt.bar(survived_count.index, survived_count,
         color = ['mediumorchid', 'darkviolet', 'indigo'])
-plt
+plt.title('Survived Counts by Embarked Port on Tatanic')
