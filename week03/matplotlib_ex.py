@@ -388,6 +388,15 @@ ax1.legend(loc='upper right', bbox_to_anchor=(1, 1))  # 범례
 ax2 = ax1.twinx()
 
 # 두 번째 그래프 설정 (막대 그래프)
+ax2.bar(x, y2, color='deeppink', alpha=0.7, label='Survived')
+ax2.set_ylabel('Survived Count', color='deeppink')  # 서브플롯 y축에 레이블 추가
+ax2.tick_params(axis='y', labelcolor='deeppink')
+ax2.legend(loc='upper right', bbox_to_anchor=(1, 0.9))
+
+plt.suptitle('Survival Analysis by Number of Parents/Children (Parch) on the Titanic')
+plt.tight_layout()
+plt.savefig('Figure16.png')
+plt.close()
 
 ## **그래프 저장하기**
 
