@@ -147,4 +147,7 @@ print(correlation_matrix)
 plt.xticks(range(len(correlation_matrix.columns)), correlation_matrix.columns, rotation=45)
 plt.yticks(range(len(correlation_matrix.columns)), correlation_matrix.columns)
 
-plt.title('Corre')
+plt.title('Correlation Heatmap of Titanic')
+plt.savefig('Figure07.png')
+plt.close()
+
