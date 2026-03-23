@@ -318,13 +318,30 @@ plt.close()
 ## **개별 서브플롯을 동시에 생성하기**
 
 # 2*2 구성의 figure
+fig, axes = plt.subplots(2, 2)
 
 # 선그래프
+axes[0, 0].plot([1, 2, 3])
+axes[0, 1].plot([4, 5, 6])
+axes[1, 0].plot([7, 8, 9])
+axes[1, 1].plot([10, 11, 12])
+plt.savefig('Figure14.png')
+plt.close()
 
 ## **타이타닉 데이터셋으로 개별 서브플롯 동시에 그리기**
 
 # 각 부모와 자녀의 수에 따른 생존자와 사망자 수 계산
+parch_counts = titanic.groupby('Parch')['Survived'].value_counts().unstack().fillna(0)
+print(parch_counts)
 
 # x, y값 설정
+x = parch_counts.index.astype(str)  # 데이터프레임의 인덱스를 문자열로 변환
+y1 = parch_counts[0].values # 사망자
+y2 = parch_counts[1].values # 생존자
 
-# plt.
+# plt.subplots()  함수를 사용하여 하나의 그림인 figure에 개별 서브플롯을 동시에 추가
+fig, axes = plt.subplots(2, 1, figsize=(10, 10))
+
+# 첫 번째 서브플롯 설정(선 그래프)
+
+# 두 번째 서브플롯 설정(막대 그래프)
