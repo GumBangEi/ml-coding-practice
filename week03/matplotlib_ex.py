@@ -378,7 +378,8 @@ y2 = parch_counts[1].values # 생존자
 fig, ax1 = plt.subplots()
 
 # 첫 번째 그래프 설정 (선 그래프)
-ax1
+ax1.plot(x, y1, '-s', color='indigo', marksize=7, linewidth=5, alpha=0.7, label='Not Survived')
+
 # .twinx() 함수를 사용하여 두 번째 그래프와 축을 공유하는 Axes 객체 생성
 
 # 두 번째 그래프 설정 (막대 그래프)
