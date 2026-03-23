@@ -145,3 +145,6 @@ print(correlation_matrix)
 
 # x축과 y축의 눈금 설정
 plt.xticks(range(len(correlation_matrix.columns)), correlation_matrix.columns, rotation=45)
+plt.yticks(range(len(correlation_matrix.columns)), correlation_matrix.columns)
+
+plt.title('Corre')
