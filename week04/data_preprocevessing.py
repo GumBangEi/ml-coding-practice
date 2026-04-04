@@ -33,7 +33,13 @@ housing_labels = start_train_set["median_house_value"].copy()
 null_rows_idx = housing.isnull().any(axis=1)
 housing.loc[null_rows_idx].head()
 
+from sklearn.impute import SimpleImputer
+
+imputer = SimpleImputer(strategy="median")
+
 # 수치형 특성만 추출
+housing_num = housing.select_dtypes(include=[np.number])
+housing
 
 # 훈련 세트의 누락값을 imputer가 학습한 값으로 채우기
 
