@@ -39,7 +39,11 @@ imputer = SimpleImputer(strategy="median")
 
 # 수치형 특성만 추출
 housing_num = housing.select_dtypes(include=[np.number])
-housing
+housing_num.head()
+
+imputer.fit(housing_num)
+
+
 
 # 훈련 세트의 누락값을 imputer가 학습한 값으로 채우기
 
