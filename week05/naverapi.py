@@ -76,4 +76,12 @@ def getPostData(post, jsonResult, cnt):     #[CODE 3]
 
     # %a: 짧은 형식의 용일 이름 (예,'Mon', 'Tue', 'Wed', ... )
     # %d: 일 (예, 01, 02, 03 ...)
-    
+    # %b: 짧은 형식의 월 이름 (예, 'Jan', 'Feb', 'Mar', ...)
+    pDate = datetime.datetime.strptime(post['pubData'], '%a, %d %b %Y %H:%M:%S +0900')
+    pDate = pDate.strftime('%Y-%m-%d %H:%M:%S')
+
+    jsonResult.append({
+        'cnt': cnt,
+        'title': title,
+        
+    })
