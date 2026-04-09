@@ -50,7 +50,7 @@ def getNaverSearch(node, srcText, page_start, display):
     else:
         return json.loads(responseDecode)
     
-    
+
 def getRequestUrl(url):
     req = urllib.request.Request(url)
 
@@ -68,3 +68,12 @@ def getRequestUrl(url):
         return None
 
 
+def getPostData(post, jsonResult, cnt):     #[CODE 3]
+    title = post['title']
+    description = post['decription']
+    org_link = post['originallink']
+    link = post['link']
+
+    # %a: 짧은 형식의 용일 이름 (예,'Mon', 'Tue', 'Wed', ... )
+    # %d: 일 (예, 01, 02, 03 ...)
+    
