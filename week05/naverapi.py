@@ -42,4 +42,9 @@ def getNaverSearch(node, srcText, page_start, display):
 
     url = base + node + parameters
     responseDecode = getRequestURL(url)             # [CODE 1]
+
+    if(responseDecode == None):
+        return None
+    else:
+        return json.loads(responseDecode)
     
