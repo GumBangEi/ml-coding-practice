@@ -7,6 +7,14 @@ client_id = 'Client ID'
 client_secret = 'Client Secret'
 
 def main():
-    node = 'news'                           # 크롤링할 대상
+    node = 'news'                                           # 크롤링할 대상
     srcText = input('검색어를 입력하세요: ')
-    
+
+    cnt = 0
+    jsonResult = []
+
+    jsonResponse = getNaverSearch(node, srcText, 1, 100)    # [CODE 2]
+    total = jsonResponse['total']
+
+    while ((jsonResponse != None) and (jsonResponse['display'] != 0)):
+        
