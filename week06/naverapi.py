@@ -8,7 +8,7 @@ client_secret = '4uEbJ4s_fU'
 
 def main():
     
-    node = 'news'                               # 크롤링할 대상
+    node = 'news'                                           # 크롤링할 대상
     srcText = input('검색어를 입력하세요: ')
 
     cnt = 0
@@ -80,12 +80,14 @@ def getPostData(post, jsonResult, cnt):     #[CODE 3]
     pDate = datetime.datetime.strptime(post['pubDate'], '%a, %d %b %Y %H:%M:%S + 0900')
     pDate = pDate.strftime('%Y-%m-%d %H:%M:%S')
 
-jsonResult.append({
-    'cnt': cnt,
-    'title': title,
-    'description': description,
-    'org_link': orglink,
-    'link': link,
-    'pDate': pDate
-})
-return
+    jsonResult.append({
+        'cnt': cnt,
+        'title': title,
+        'description': description,
+        'org_link': org_link,
+        'link': link,
+        'pDate': pDate
+    })
+    return
+
+main()
