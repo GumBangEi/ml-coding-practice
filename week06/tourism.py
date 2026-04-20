@@ -12,11 +12,11 @@ def main():
     jsonResult = []
     result = []
 
-    print("<< 국내 입주한 외국인의 통계 데이터를 수잡합니다. >>")
-    nat_cd = input('국가 코드를 입력하세요(중국: 112 / 일본: 130 / 미국: 275) : ')
+    print("<< 국내 입국한 외국인의 통계 데이터를 수집합니다. >>")
+    nat_cd = input('국가 코드를 입력하세요(중국: 112 / 일본: 130 / 미국: 275) :')
     nStartYear = int(input('데이터를 몇 년부터 수집할까요? : '))
     nEndYear = int(input('데이터를 몇 년까지 수집할까요? : '))
-    ed_cd = "E"                               # E : 방한외래관광객, D : 해외 출국
+    ed_cd = "E" 		                      # E : 방한외래관광객, D : 해외 출국
 
     jsonResult, result, natName, dataEND = getTourismStatsService(nat_cd, ed_cd, nStartYear, nEndYear)  #[CODE 3]
 
@@ -34,25 +34,25 @@ def getTourismStatsService(nat_cd, ed_cd, nStartYear, nEndYear):
     for year in range(nStartYear, nEndYear+1):
         for month in range(1, 13):
             yyyymm = "{0}{1:0>2}".format(str(year), str(month))
-            jsonData = getTourismStatsItem(yyyymm, nat_cd, ed_cd)       #[CODE 2]
+            jsonData = getTourismStatsItem(yyyymm, nat_cd, ed_cd)     #[CODE 2]
             if (jsonData['response']['header']['resultMsg'] == 'OK'):
-                #데이터가 없는 마지막 항목인 경우 -------------------------------
+                #데이터가 없는 마지막 항목인 경우 ----------------------------
                 if jsonData['response']['body']['items'] == '':
                     dataEND = "{0}{1:0>2}".format(str(year), str(month-1))
-                    print("데이터 없음.... \n제공되는 통계 데이터는 %s년 %s월까지 입니다." % (str(year), str(month-1)))
+                    print("데이터 없음.... \n제공되는 통계 데이터는 %s년 %s월까지입니다." % (str(year), str(month-1)))
                     break
-                #jsonData를 출력하여 확인.............................................
+                #jsonData를 출력하여 확인............................................
                 print(json.dumps(jsonData, indent = 4, sort_keys = True, ensure_ascii = False))
 
-                natName = jsonData['resopnse']['body']['items']['item']['netKorNm']
+                natName = jsonData['response']['body']['items']['item']['natKorNm']
                 natName = natName.replace(' ', '')
                 num = jsonData['response']['body']['items']['item']['num']
-                ed = jsonData0['response']['body']['items']['item']['ed']
-                print('[%s_%s : %s]' % (natName, yyyymm, num))
-                print('-------------------------------------------------------')
+                ed = jsonData['response']['body']['items']['item']['ed']
+                print('[ %s_%s : %s ]' % (natName, yyyymm, num))
+                print('------------------------------------------------------')
                 jsonResult.append({'nat_name': natName, 'nat_cd': nat_cd, 'yyyymm': yyyymm, 'visit_cnt': num})
-                result.append({natName, nat_cd, yyyymm, num})
-    
+                result.append([natName, nat_cd, yyyymm, num])
+
     return (jsonResult, result, natName, ed)
 
 """### [CODE 2]"""
@@ -66,7 +66,7 @@ def getTourismStatsItem(yyyymm, nat_cd, ed_cd):
 
     url = service_url + parameters
 
-    responseDecode = getRequestUrl(url)                         #[CODE 1]
+    responseDecode = getRequestUrl(url) 	                    #[CODE 1]
 
     if (responseDecode == None):
         return None
@@ -75,7 +75,7 @@ def getTourismStatsItem(yyyymm, nat_cd, ed_cd):
 
 """### [CODE 1]"""
 
-def getRequestUrl(url):     #[CODE 1]
+def getRequestUrl(url):  #[CODE 1]
     req = urllib.request.Request(url)
     try:
         response = urllib.request.urlopen(req)
