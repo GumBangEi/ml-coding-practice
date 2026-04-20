@@ -44,4 +44,36 @@ def getNaverSearch(node, srcText, page_start, display):
 
     url = base + node + parameters
     responseDecode = getRequestUrl(url)             #[CODE 1]
+
+    if (responseDecode == None):
+        return None
+    else:
+        return json.loads(responseDecode)
     
+
+def getRequestUrl(url):
+    req = urllib.request.Request(url)
+
+    req.add_header("X-Naver-Client-Id", client_id)
+    req.add_header("X-Naver-Client-Secret", client_secret)
+
+    try:
+        response = urllib.request.urlopen(req)
+        if response.getcode() == 200:
+            print("[%s] Url Request Success" % datetime.datetime.now())
+            return response.read().decode('utf-8')
+    except Exception as e:
+        print(e)
+        print("[%s] Error for URL : %s" % (datetime.datetime.now(), url))
+        return None
+
+
+def getPostData(post, jsonResult, cnt):     #[CODE 3]
+    title = post['title']
+    description = post['description']
+    org_link = post['orignallink']
+    link = post['link']
+
+    # %a: 짧은 형식의 요일 이름 (예, 'Mon', 'Tue', 'Wed', ... )
+    # %d: 일 (예, 01, 02, 03, ... )
+    # %b: 짧은 형식의 월 이름 (예, 'Jan', 'Feb', 'Mar', ... )
