@@ -71,3 +71,7 @@ print(cm)
 
 y_train_perfect_predicitions = y_train_5    # 완벽한 분류기일 경우
 print(confusion_matrix(y_train_5, y_train_perfect_predicitions))
+
+# 정밀도와 재현율
+from sklearn.matrics import precision, recall_score
+
