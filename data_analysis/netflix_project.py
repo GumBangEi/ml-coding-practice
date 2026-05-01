@@ -78,3 +78,36 @@ netflix.head(2)
 # index=False: 데이터프레임의 인덱스 열을 포함하지 않겠다는 뜻
 netflix.to_csv('netflix_preprocessed.csv', index=False)
 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 데이터 전처리가 완료된 데이터셋 불러오기
+netflix = pd.read_csv('netflix_preprocessed.csv')
+
+# 넷플릭스 브랜드 상진 색깔 시각화
+sns.palplot(['#221f1f', '#b20710', '#e50914', '#f5f5f1'])
+
+# 제목 정하기
+plt.title('Netflix brand palette', loc='left', fontfmamily='serif', fontsize=15, y=1.2)
+plt.show()
+
+netflix['title'].str.contains('squid game', na=False, case=False)
+
+# 오징어 게임을 검색한 조건을 넷플릭스 데이터에 넣어서 True인 값만 출력
+netflix[netflix['title'].str.contains('Squid Game', na=False, case=False)]
+
+type_count = netflix['type'].value_counts()
+print(type_count)
+
+# 5x5 크기의 플롯 만들기
+plt.figure(figsize=(5, 5))
+
+plt.pie(type_count, labels=type_count.index, autopct='%0.f%%', startangle=100,
+        explode=[0.05, 0.05], shadow=True, colors=['#b20710', '#221f1f'])
+
+plt.suptitle('Movie & TV Show distribution', fontfamily='serif', fontsize=15, fontweight='bold')
+plt.title('We see more movies than TV shows on Netflix', fontfamily='serif', fontsize=12)
+plt.show()
+
