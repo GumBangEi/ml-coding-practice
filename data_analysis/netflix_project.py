@@ -7,7 +7,7 @@ import matplotlib as plt
 import seaborn as sns
 
 # 세션이 저장소에 업로드한 csv 파일을 읽어 변수에 할당
-netflix = pd.read_csv('netflix_titles.csv')
+netflix = pd.read_csv('data_analysis/netflix_titles.csv')
 netflix.head()
 
 # .columns : 열 이름 확인
@@ -76,7 +76,7 @@ netflix.head(2)
 
 # 데이터 전처리 완료한 데이터셋 csv 파일로 저장
 # index=False: 데이터프레임의 인덱스 열을 포함하지 않겠다는 뜻
-netflix.to_csv('netflix_preprocessed.csv', index=False)
+netflix.to_csv('data_analysis/netflix_preprocessed.csv', index=False)
 
 import numpy as np
 import pandas as pd
@@ -84,13 +84,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # 데이터 전처리가 완료된 데이터셋 불러오기
-netflix = pd.read_csv('netflix_preprocessed.csv')
+netflix = pd.read_csv('data_analysis/netflix_preprocessed.csv')
 
 # 넷플릭스 브랜드 상진 색깔 시각화
 sns.palplot(['#221f1f', '#b20710', '#e50914', '#f5f5f1'])
 
 # 제목 정하기
-plt.title('Netflix brand palette', loc='left', fontfmamily='serif', fontsize=15, y=1.2)
+plt.title('Netflix brand palette', loc='left', fontfamily='serif', fontsize=15, y=1.2)
 plt.show()
 
 netflix['title'].str.contains('squid game', na=False, case=False)
@@ -205,7 +205,7 @@ text = str(list(netflix['description']))
 
 # mask : 단어를 그릴 위치 설정, 흰색(#FFFFFF) 항목은 마스킹된 것으로 간주
 # 로고 이미지 열고 넘파이 배열로 변환
-mask = np.array(Image.open('netflix_logo.jpg'))
+mask = np.array(Image.open('data_analysis/netflix_logo.jpg'))
 
 # 워드 클라우드 색상맵 만들기
 cmap = plt.matplotlib.colors.LinearSegmentedColormap.from_list('', ['#221f1f', '#b20710'])
